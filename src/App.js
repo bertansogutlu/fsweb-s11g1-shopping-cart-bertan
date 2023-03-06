@@ -15,7 +15,7 @@ function App() {
 
   const addItem = (item) => {
     // verilen itemi sepete ekleyin
-    setCart([...cart, item])
+    !cart.some( e => e.id === item.id) && setCart([...cart, item])
   };
 
   const removeItem = (item) => {
