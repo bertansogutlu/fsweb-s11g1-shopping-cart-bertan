@@ -18,10 +18,15 @@ function App() {
     setCart([...cart, item])
   };
 
+  const removeItem = (item) => {
+    // verilen itemi sepete ekleyin
+    setCart(cart.filter( e => e.id !== item.id ))
+  };
+
   return (
     <div className="App">
       <ProductContext.Provider value={{ products, addItem }}>
-      <CartContext.Provider value={cart}>
+      <CartContext.Provider value={{cart, removeItem}}>
         <Navigation/>
 
         {/* Routelar */}

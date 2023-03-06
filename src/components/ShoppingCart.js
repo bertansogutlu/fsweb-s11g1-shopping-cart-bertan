@@ -8,7 +8,7 @@ import Item from "./ShoppingCartItem";
 
 const ShoppingCart = () => {
 
-  const cart = useContext(CartContext);
+  const { cart, removeItem } = useContext(CartContext);
 
   const getCartTotal = () => {
     return cart
@@ -21,7 +21,7 @@ const ShoppingCart = () => {
   return (
     <div>
       {cart.map((item) => (
-        <Item key={item.id} {...item} />
+        <Item key={item.id} {...item} removeItem={removeItem}/>
       ))}
 
       <ScCartCheckout>
